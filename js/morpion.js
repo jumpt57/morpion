@@ -523,25 +523,25 @@ function addProba (grilleLigne, grilleColonne, grilleDiagonale) {
 /**
  * Va mettre à jour les probas.
  */
-function majProba(){
+function majProba() {
 
-    for(var i = 0; i <3; i++){
-        for(var j = 0; j <3; j++){
-            if(grille[i][j] == 'X'){
+    for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+            if (grille[i][j] == 'X') {
                 grilleLigne[i][j] = -2;
-            } else if(grille[i][j] == 'O'){
+            } else if (grille[i][j] == 'O') {
                 grilleLigne[i][j] = 2;
-            } else{
+            } else {
                 grilleLigne[i][j] = 1;
-            } 
+            }
         }
     }
 
-    for(var i = 0; i <3; i++){
-        for(var j = 0; j <3; j++){
-            if(grille[j][i] == 'X')
+    for (var i = 0; i < 3; i++) {
+        for (var j = 0; j < 3; j++) {
+            if (grille[j][i] == 'X')
                 grilleColonne[i][j] = -2;
-            else if(grille[j][i] == 'O')
+            else if (grille[j][i] == 'O')
                 grilleColonne[i][j] = 2;
             else
                 grilleColonne[i][j] = 1;
@@ -551,55 +551,10 @@ function majProba(){
     grilleDiagonale[0] = new Array(grilleLigne[0][0], 0, grilleLigne[0][2]);
     grilleDiagonale[1] = new Array(0, grilleLigne[1][1], 0);
     grilleDiagonale[2] = new Array(grilleLigne[2][0], 0, grilleLigne[2][2]);
-    
+
     majProbaLC(grilleLigne);
     majProbaLC(grilleColonne);
     majProbaDiag(grilleDiagonale);
 
     proba = addProba(grilleLigne, grilleColonne, grilleDiagonale);
-
-
-/*    for(var i = 0; i <3; i++){
-        var count;
-        for(var j = 0; j <3; j++){    
-            if(proba[i][j] =-2)
-                count ++;
-        }
-        
-    }*/
-    
-    // for(var i = 0; i <3; i++){     
-    //     var count = 0;  
-    //     for(var j = 0; j <3; j++){
-    //         console.log("A", i, j);
-    //         if(proba[i][j] == -2){
-    //             count = 1;
-    //             console.log(count);
-    //         }
-    //         else if (proba[i][j] != -1){
-    //             if(count == 1)
-    //                 proba[i][j] -= 1/8;
-    //         }
-    //     }
-    //     count = 0;
-    //     for(var j = 0; j <3; j++){
-    //         console.log("B", j,i);
-    //         if(proba[j][i] == -2){
-    //             count = 1;
-    //             console.log(count);
-    //         }
-    //         else if (proba[j][i] != -2){
-    //             if(count == 1){
-    //                 if(proba[j][i] != -2 && proba[j][i] != 0.125){
-    //                     console.log("C", proba[j][i]);
-    //                     proba[j][i] -= 1/8;
-    //                     console.log("C2", proba[j][i]);
-    //             }
-    //             }
-    //         }
-    //     }
-    // }
-
 }
-
-
